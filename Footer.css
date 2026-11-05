@@ -1,3 +1,19 @@
-.footer_left{
-    
+footer .footer_left{
+    float: left;
+}
+footer img{
+    width: 25%;
+    height: auto;
+}
+#column_1{
+    float: left;
+}
+#column_3{
+    float: right;
+}
+footer li{
+    transition: transform 0.3s ease;
+}
+footer li:hover{
+    transform: scale(2);
 }
