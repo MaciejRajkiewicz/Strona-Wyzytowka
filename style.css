@@ -5,6 +5,8 @@ main {
     font-family: Arial, sans-serif;
     background-color: #0d1b2a;
     color:whitesmoke
+    
+    
 }
 
 main section {
@@ -14,12 +16,19 @@ main section {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     background-color: #0f4c75;
+    font-size: max(30px);
+    display: flex;
+    flex-wrap: wrap;
+
+    
 }
 
 main h2 {
     margin-top: 0;
     color: #whitesmoke;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
@@ -28,22 +37,26 @@ main .section_2 {
     justify-content: space-between; 
     align-items: center; 
     gap: 20px;
+    font-size: max(30px);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 main .description {
     flex: 1; 
+    font-size: max(30px);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 main .photo {
     flex: 0 0 auto; 
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-main .photo img {
-    width: 250px; 
-    min-width: 250px;
-    height: auto; 
-    border-radius: 8px;
-    display: block;
-}
 
 
