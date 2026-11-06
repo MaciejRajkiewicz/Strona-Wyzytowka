@@ -1,0 +1,48 @@
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+background-color: #0d1b2a;
+}
+
+main section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #0f4c75;
+}
+
+main h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+
+main .section_2 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 20px;
+}
+
+main .description {
+    flex: 1; 
+}
+
+main .photo {
+    flex: 0 0 auto; 
+}
+
+main .photo img {
+    width: 250px; 
+    min-width: 250px;
+    height: auto; 
+    border-radius: 8px;
+    display: block;
+}
+
+
