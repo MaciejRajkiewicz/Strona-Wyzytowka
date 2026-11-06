@@ -36,15 +36,13 @@ footer #column_3 {
     margin-bottom: 15px;
 }
 
-/* 1. Pogrubienie nagłówków (labeli) kolumn */
 .footer-title, footer label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
-    color: #333; /* Opcjonalnie kolor nagłówka */
+    color: #333;
 }
 
-/* Usunięcie wcięć list */
 footer ul {
     padding-left: 0;
     margin: 0;
@@ -57,24 +55,21 @@ footer li {
     transform-origin: bottom left;
 }
 
-/* 2. Styl dla linków: szare i bez podkreślenia */
 footer a {
-    color: #888888;          /* Szary kolor linków */
-    text-decoration: none;   /* Usunięcie podkreślenia */
-    transition: color 0.3s ease; /* Płynna zmiana koloru przy najechaniu */
+    color: #888888;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease;
 }
 
-/* Opcjonalnie: zmiana koloru lub powiększenie po najechaniu myszką */
 footer a:hover {
-    color: #333333;          /* Przyciemnienie tekstu po najechaniu */
-    transform: scale(1.1);   /* Delikatne powiększenie (jeśli chcesz zachować efekt) */
+    color: #333333;
 }
 
 footer li:hover {
     transform: scale(1.2);
 }
 
-/* RWD dla telefonów */
 @media (max-width: 768px) {
     footer {
         flex-direction: column;
@@ -93,9 +88,4 @@ footer li:hover {
         width: 100%;
         text-align: center;
     }
-}
-footer a {
-    color: #888888;
-    text-decoration: none;
-    font-weight: normal;
 }
