@@ -1,5 +1,5 @@
 header{
-    background-color: #faf7cb;
+    background-color: #0f4c75;
     display: flex;
     padding: 0;
     align-items: center;
@@ -43,11 +43,11 @@ header{
     position: absolute;
     right: 0px;
     top: 100%;
-    background-color: #faf7cb;
+    background-color: #b948eeb7;
     min-width: clamp(60px, 10vw, 130px);
     width: max-content;
     z-index: 1000;
-    border: 1px solid #c2b64b;
+    border: 1px solid #7f00b9b7;
 }
 
 .dropdown:hover .menu_header_content{
@@ -55,6 +55,6 @@ header{
 }
 
 .dropdown a:hover{
-    background-color: #c2b64b;
+    background-color: #7f00b9b7;
     color: white;
 }
