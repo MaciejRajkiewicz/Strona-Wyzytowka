@@ -1,13 +1,17 @@
 footer {
     display: flex;
+    flex-wrap: wrap; /* Pozwala elementom zawijać się do nowej linii na małych ekranach */
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     padding: 20px;
+    box-sizing: border-box; /* Zapobiega wychodzeniu paddingu poza szerokość */
+    width: 100%;
 }
 
 footer .footer_left {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 footer img {
@@ -18,14 +22,25 @@ footer img {
 
 #footer_right {
     display: flex;
-    align-items: flex-end;
+    flex-wrap: wrap; /* Kolumny też mogą się zawijać */
     flex: 1; 
-    margin-left: 40px; 
+    min-width: 250px; /* Zapewnia, że kolumny nie zgniecą się zbytnio */
 }
 
-footer #column_1, #column_2, #column_3 {
+/* Poprawiony selektor (poprzedni #column_2 i #column_3 nie były powiązane z footer) */
+footer #column_1, 
+footer #column_2, 
+footer #column_3 {
     flex: 1; 
+    min-width: 100px;
     text-align: center; 
+    margin-bottom: 15px;
+}
+
+/* Usunięcie domyślnych wcięć list, które mogły przesuwać treść */
+footer ul {
+    padding-left: 0;
+    margin: 5px 0 0 0;
 }
 
 footer li {
@@ -37,4 +52,25 @@ footer li {
 
 footer li:hover {
     transform: scale(1.5);
+}
+
+/* RWD (Responsiveness) dla telefonów */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Układa logo i kolumny jedna pod drugą na telefonie */
+        align-items: center;
+    }
+
+    #footer_right {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    footer #column_1, 
+    footer #column_2, 
+    footer #column_3 {
+        width: 100%;
+        text-align: center;
+    }
 }
