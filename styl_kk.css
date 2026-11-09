@@ -1,0 +1,11 @@
+#plansza { 
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 12px; 
+}
+
+#plansza button { 
+    height: 90px; font-size: 2.5rem; 
+}
+
+main { 
+    font-family: Arial, sans-serif; max-width: 300px; margin: 20px auto; text-align: center; 
+}
