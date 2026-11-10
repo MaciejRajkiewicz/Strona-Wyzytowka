@@ -28,7 +28,30 @@
     <main>
         <link rel="stylesheet" href="styl_kk.css">
         <script src="script_kk.js"></script>
-        
+
+        <section id="kk">
+            <h1>Kółko i krzyżyk</h1>
+
+            <div id="settings">
+                <p>
+                    Tryb:<br>
+                    <input type="radio" name="mode" value="2players" checked> 2 Osoby
+                    <input type="radio" name="mode" value="bot"> Bot
+                </p>
+                <p>
+                    Wybierz czym grasz:<br>
+                    <input type="radio" name="symbol" value="X" checked> X
+                    <input type="radio" name="symbol" value="O"> O
+                </p>
+                <button onclick="startGame()">Start</button>
+            </div>
+
+            <p id="status"></p>
+
+            <div id="board"></div>
+
+            <button onclick="resetGame()" id="resetBtn" style="display:none;">Nowa gra</button>
+        </section>
     </main>
 
     <footer>
