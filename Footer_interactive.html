@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statystyki Steam</title>
+
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_header.css">
+    <link rel="stylesheet" href="Footer.css"> 
+</head>
+<body>
+    <header>
+        <img src="img_header/logo.png" alt="Logo_header" class="logo_header">
+        <div class="dropdown">
+            <button class="menu_header">☰</button>
+            <div class="menu_header_content">
+                <a href="../index.html">Strona główna</a>
+                <a href="opt2">Strona Maćka</a>
+                <a href="opt3">Strona Vladka</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Liczba graczy na żywo</h2>
+        
+        <section>
+            <div class="section_2">
+                <div class="description">
+                   <p>Liczba aktualnych graczy w wybranych grach</p> 
+                </div>
+                <div class="photo">
+                    <img src="imgmain/pobrane.png" alt="Wykres statystyk">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja z miejscami na dane pobierane z pliku JSON -->
+        <ul style="list-style: none; padding: 0;">
+            <li>CS2: <span id="cs2-players">Ładowanie...</span></li>
+            <li>GTA 5: <span id="gta5-players">Ładowanie...</span></li>
+            <li>PAYDAY 2: <span id="payday2-players">Ładowanie...</span></li>
+            <li>GMOD: <span id="gmod-players">Ładowanie...</span></li>
+            <li>Football Manager: <span id="fm-players">Ładowanie...</span></li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="footer_left">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mlLdjGKICpKkmrjEWxocQK8MmhrF-Cj7SNig2U4_sQ&s=10" alt="logo" id="img_smaller">
+        </div>
+        <div id="footer_right">
+            <div id="column_1">
+                <div class="footer_column_content">
+                    <span class="footer_title">Gry</span>
+                    <ul>
+                        <li><a href="https://www.roblox.com/games/91445552037955/HUSH">HUSH</a></li>
+                        <li><a href="https://www.roblox.com/games/21532277/Notoriety-A-PAYDAY-Experience">PAYDAY</a></li>
+                        <li><a href="https://www.roblox.com/games/9192423027/Industrialist">Industrialist</a></li>
+                        <li><a href="https://www.roblox.com/games/185655149/Welcome-to-Bloxburg">Bloxburg</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="column_2">
+                <div class="footer_column_content">
+                    <span class="footer_title">Poradniki</span>
+                    <ul>
+                        <li><a href="https://hush.fandom.com/wiki/H.U.S.H_Wiki">HUSH Wiki</a></li>
+                        <li><a href="https://payday.fandom.com/wiki/PAYDAY_2">PAYDAY Wiki</a></li>
+                        <li><a href="https://industrialist.fandom.com/wiki/Industrialist_Wiki">Industrialist Wiki</a></li>
+                        <li><a href="https://tiny.pl/kvvr_0mm7">Bloxburg Wiki</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="column_3">
+                <div class="footer_column_content">
+                    <span class="footer_title">Inne Platformy</span>
+                    <ul>
+                        <li><a href="https://store.steampowered.com/">Steam</a></li>
+                        <li><a href="https://store.epicgames.com/?lang=pl">Epic</a></li>
+                        <li><a href="https://www.gog.com/pl/">GOG</a></li>
+                        <li><a href="https://www.rockstargames.com/">Rockstar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Skrypt JavaScript wstrzykujący pobrane dane do elementów HTML -->
+    <script>
+    fetch('Footer_interactive_files/Footer_interactive_dane.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("cs2-players").innerText = data.cs2;
+            document.getElementById("gta5-players").innerText = data.gta5;
+            document.getElementById("payday2-players").innerText = data.payday2;
+            document.getElementById("gmod-players").innerText = data.gmod;
+            document.getElementById("fm-players").innerText = data.fm;
+        })
+        .catch(error => {
+            console.error("Błąd wczytywania danych:", error);
+        });
+    </script>
+</body>
+</html>
