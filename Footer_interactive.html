@@ -88,20 +88,47 @@
         </div>
     </footer>
 
-    <!-- Skrypt JavaScript wstrzykujący pobrane dane do elementów HTML -->
     <script>
-    fetch('Footer_interactive_files/Footer_interactive_dane.json')
-        .then(response => response.json())
+(function () {
+    const elementy = {
+        cs2: document.getElementById("cs2-players"),
+        gta5: document.getElementById("gta5-players"),
+        payday2: document.getElementById("payday2-players"),
+        gmod: document.getElementById("gmod-players"),
+        fm: document.getElementById("fm-players")
+    };
+
+    function formatuj(liczba) {
+        if (typeof liczba !== "number" || isNaN(liczba)) {
+            return "Brak danych";
+        }
+        return liczba.toLocaleString("pl-PL") + " graczy";
+    }
+
+    // Cache-busting – zawsze świeże dane
+    const url = "Footer_interactive_files/Footer_interactive_dane.json?t=" + Date.now();
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.json();
+        })
         .then(data => {
-            document.getElementById("cs2-players").innerText = data.cs2;
-            document.getElementById("gta5-players").innerText = data.gta5;
-            document.getElementById("payday2-players").innerText = data.payday2;
-            document.getElementById("gmod-players").innerText = data.gmod;
-            document.getElementById("fm-players").innerText = data.fm;
+            for (const klucz in elementy) {
+                if (elementy[klucz]) {
+                    elementy[klucz].textContent = formatuj(data[klucz]);
+                }
+            }
         })
         .catch(error => {
             console.error("Błąd wczytywania danych:", error);
+            for (const klucz in elementy) {
+                if (elementy[klucz]) {
+                    elementy[klucz].textContent = "Błąd ładowania";
+                }
+            }
         });
-    </script>
+})();
+</script>
 </body>
 </html>
