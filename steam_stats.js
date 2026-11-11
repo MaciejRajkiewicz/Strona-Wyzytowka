@@ -6,7 +6,7 @@ const gry = [
     { id: 271590, klucz: "gta5" },    // GTA V
     { id: 218620, klucz: "payday2" }, // PAYDAY 2
     { id: 4000, klucz: "gmod" },      // Garry's Mod
-    { id: 2252520, klucz: "fm" }      // Football Manager
+    { id: 4530370, klucz: "fm" }      // Football Manager
 ];
 
 async function sleep(ms) {
