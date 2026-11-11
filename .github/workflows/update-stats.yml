@@ -1,0 +1,29 @@
+name: Aktualizacja statystyk Steam
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Pobierz kod repozytorium
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Uruchom skrypt aktualizujący
+        run: node steam-stats.js
+
+      - name: Zapisz i wyślij zmiany do repozytorium
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Automatyczna aktualizacja statystyk graczy [skip ci]"
+          file_pattern: Footer_interactive_files/Footer_interactive_dane.json
