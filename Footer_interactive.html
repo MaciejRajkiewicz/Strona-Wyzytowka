@@ -5,130 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statystyki Steam</title>
 
-    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css_header.css">
-    <link rel="stylesheet" href="Footer.css"> 
+    <link rel="stylesheet" href="Footer.css">
+    <link rel="stylesheet" href="Footer_interactive_files/Footer_interactive_css.css">
 </head>
 <body>
     <header>
-        <img src="img_header/logo.png" alt="Logo_header" class="logo_header">
+       <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg" 
+        alt="Steam Logo" 
+        class="logo_header">
         <div class="dropdown">
             <button class="menu_header">☰</button>
             <div class="menu_header_content">
-                <a href="../index.html">Strona główna</a>
-                <a href="opt2">Strona Maćka</a>
-                <a href="opt3">Strona Vladka</a>
+                <a href="index.html">Strona główna</a>
+                <a href="#">Strona Maćka</a>
+                <a href="#">Strona Vladka</a>
             </div>
         </div>
     </header>
 
     <main>
         <h2>Liczba graczy na żywo</h2>
-        
-        <section>
-            <div class="section_2">
-                <div class="description">
-                   <p>Liczba aktualnych graczy w wybranych grach</p> 
-                </div>
-                <div class="photo">
-                    <img src="imgmain/pobrane.png" alt="Wykres statystyk">
-                </div>
-            </div>
-        </section>
+        <p class="stats-intro">Aktualna liczba graczy w wybranych grach na Steam</p>
 
-        <!-- Sekcja z miejscami na dane pobierane z pliku JSON -->
-        <ul style="list-style: none; padding: 0;">
-            <li>CS2: <span id="cs2-players">Ładowanie...</span></li>
-            <li>GTA 5: <span id="gta5-players">Ładowanie...</span></li>
-            <li>PAYDAY 2: <span id="payday2-players">Ładowanie...</span></li>
-            <li>GMOD: <span id="gmod-players">Ładowanie...</span></li>
-            <li>Football Manager: <span id="fm-players">Ładowanie...</span></li>
+        <ul class="stats-list">
+            <li>
+                <span class="game-name">CS2</span>
+                <span id="cs2-players">Ładowanie...</span>
+            </li>
+            <li>
+                <span class="game-name">GTA 5</span>
+                <span id="gta5-players">Ładowanie...</span>
+            </li>
+            <li>
+                <span class="game-name">PAYDAY 2</span>
+                <span id="payday2-players">Ładowanie...</span>
+            </li>
+            <li>
+                <span class="game-name">Garry's Mod</span>
+                <span id="gmod-players">Ładowanie...</span>
+            </li>
+            <li>
+                <span class="game-name">Football Manager</span>
+                <span id="fm-players">Ładowanie...</span>
+            </li>
         </ul>
     </main>
 
     <footer>
-        <div class="footer_left">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mlLdjGKICpKkmrjEWxocQK8MmhrF-Cj7SNig2U4_sQ&s=10" alt="logo" id="img_smaller">
-        </div>
-        <div id="footer_right">
-            <div id="column_1">
-                <div class="footer_column_content">
-                    <span class="footer_title">Gry</span>
-                    <ul>
-                        <li><a href="https://www.roblox.com/games/91445552037955/HUSH">HUSH</a></li>
-                        <li><a href="https://www.roblox.com/games/21532277/Notoriety-A-PAYDAY-Experience">PAYDAY</a></li>
-                        <li><a href="https://www.roblox.com/games/9192423027/Industrialist">Industrialist</a></li>
-                        <li><a href="https://www.roblox.com/games/185655149/Welcome-to-Bloxburg">Bloxburg</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="column_2">
-                <div class="footer_column_content">
-                    <span class="footer_title">Poradniki</span>
-                    <ul>
-                        <li><a href="https://hush.fandom.com/wiki/H.U.S.H_Wiki">HUSH Wiki</a></li>
-                        <li><a href="https://payday.fandom.com/wiki/PAYDAY_2">PAYDAY Wiki</a></li>
-                        <li><a href="https://industrialist.fandom.com/wiki/Industrialist_Wiki">Industrialist Wiki</a></li>
-                        <li><a href="https://tiny.pl/kvvr_0mm7">Bloxburg Wiki</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="column_3">
-                <div class="footer_column_content">
-                    <span class="footer_title">Inne Platformy</span>
-                    <ul>
-                        <li><a href="https://store.steampowered.com/">Steam</a></li>
-                        <li><a href="https://store.epicgames.com/?lang=pl">Epic</a></li>
-                        <li><a href="https://www.gog.com/pl/">GOG</a></li>
-                        <li><a href="https://www.rockstargames.com/">Rockstar</a></li>
-                    </ul>
-                </div>
+    <div class="footer_left">
+        <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg" 
+             alt="Steam Logo" 
+             id="img_smaller"
+             style="width: 120px; height: auto;">
+    </div>
+    <div id="footer_right">
+        <div id="column_1">
+            <div class="footer_column_content">
+                <span class="footer_title">Gry na Steam</span>
+                <ul>
+                    <li><a href="https://store.steampowered.com/app/730/CounterStrike_2/" target="_blank" rel="noopener">Counter-Strike 2</a></li>
+                    <li><a href="https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" target="_blank" rel="noopener">GTA V</a></li>
+                    <li><a href="https://store.steampowered.com/app/218620/PAYDAY_2/" target="_blank" rel="noopener">PAYDAY 2</a></li>
+                    <li><a href="https://store.steampowered.com/app/4000/Garrys_Mod/" target="_blank" rel="noopener">Garry's Mod</a></li>
+                    <li><a href="https://store.steampowered.com/app/2252520/Football_Manager_2024/" target="_blank" rel="noopener">Football Manager</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div id="column_2">
+            <div class="footer_column_content">
+                <span class="footer_title">Narzędzia</span>
+                <ul>
+                    <li><a href="https://steamcharts.com/" target="_blank" rel="noopener">Steam Charts</a></li>
+                    <li><a href="https://steamdb.info/" target="_blank" rel="noopener">SteamDB</a></li>
+                    <li><a href="https://steamspy.com/" target="_blank" rel="noopener">SteamSpy</a></li>
+                    <li><a href="https://store.steampowered.com/stats/" target="_blank" rel="noopener">Steam Stats</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="column_3">
+            <div class="footer_column_content">
+                <span class="footer_title">Platformy</span>
+                <ul>
+                    <li><a href="https://store.steampowered.com/" target="_blank" rel="noopener">Steam</a></li>
+                    <li><a href="https://store.epicgames.com/?lang=pl" target="_blank" rel="noopener">Epic Games</a></li>
+                    <li><a href="https://www.gog.com/pl/" target="_blank" rel="noopener">GOG</a></li>
+                    <li><a href="https://www.rockstargames.com/" target="_blank" rel="noopener">Rockstar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-extra">
+        <div>
+            Dane pochodzą z SteamSpy • aktualizowane automatycznie co godzinę
+        </div>
+        <div class="update-info">
+            Projekt zespołowy • 
+            <a href="https://steamcharts.com/" target="_blank" rel="noopener">Steam Charts</a> • 
+            <a href="https://steamdb.info/" target="_blank" rel="noopener">SteamDB</a>
+        </div>
+    </div>
+</footer>
 
     <script>
-(function () {
-    const elementy = {
-        cs2: document.getElementById("cs2-players"),
-        gta5: document.getElementById("gta5-players"),
-        payday2: document.getElementById("payday2-players"),
-        gmod: document.getElementById("gmod-players"),
-        fm: document.getElementById("fm-players")
-    };
+    (function () {
+        const elementy = {
+            cs2: document.getElementById("cs2-players"),
+            gta5: document.getElementById("gta5-players"),
+            payday2: document.getElementById("payday2-players"),
+            gmod: document.getElementById("gmod-players"),
+            fm: document.getElementById("fm-players")
+        };
 
-    function formatuj(liczba) {
-        if (typeof liczba !== "number" || isNaN(liczba)) {
-            return "Brak danych";
+        function formatuj(liczba) {
+            if (typeof liczba !== "number" || isNaN(liczba)) {
+                return "Brak danych";
+            }
+            return liczba.toLocaleString("pl-PL") + " graczy";
         }
-        return liczba.toLocaleString("pl-PL") + " graczy";
-    }
 
-    // Cache-busting – zawsze świeże dane
-    const url = "Footer_interactive_files/Footer_interactive_dane.json?t=" + Date.now();
+        const url = "Footer_interactive_files/Footer_interactive_dane.json?t=" + Date.now();
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) throw new Error("HTTP " + response.status);
-            return response.json();
-        })
-        .then(data => {
-            for (const klucz in elementy) {
-                if (elementy[klucz]) {
-                    elementy[klucz].textContent = formatuj(data[klucz]);
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                return response.json();
+            })
+            .then(data => {
+                for (const klucz in elementy) {
+                    if (elementy[klucz]) {
+                        elementy[klucz].textContent = formatuj(data[klucz]);
+                    }
                 }
-            }
-        })
-        .catch(error => {
-            console.error("Błąd wczytywania danych:", error);
-            for (const klucz in elementy) {
-                if (elementy[klucz]) {
-                    elementy[klucz].textContent = "Błąd ładowania";
+            })
+            .catch(error => {
+                console.error("Błąd wczytywania danych:", error);
+                for (const klucz in elementy) {
+                    if (elementy[klucz]) {
+                        elementy[klucz].textContent = "Błąd ładowania";
+                    }
                 }
-            }
-        });
-})();
-</script>
+            });
+    })();
+    </script>
 </body>
 </html>
