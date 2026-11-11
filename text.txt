@@ -1,0 +1,17 @@
+Cześć! Czy możesz włączyć GitHub Pages dla naszego repozytorium? Zajmie to dosłownie 10 sekund:
+
+
+
+1. Wejdź w zakładkę Settings (Ustawienia) na górnym pasku repozytorium.
+
+2. W menu po lewej stronie znajdź sekcję Code and automation i kliknij Pages.
+
+3. W sekcji Build and deployment jako Source wybierz opcję "Deploy from a branch".
+
+4. Pod spodem w sekcji Branch wybierz odpowiednią gałąź (np. main) oraz folder /root.
+
+5. Kliknij przycisk Save.
+
+
+
+Dzięki temu nasza strona będzie działać w internecie 24/7 dla każdego bez potrzeby odpalania czegokolwiek na komputerach!
