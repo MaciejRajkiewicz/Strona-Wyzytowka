@@ -1,17 +1,31 @@
-Cześć! Czy możesz włączyć GitHub Pages dla naszego repozytorium? Zajmie to dosłownie 10 sekund:
+Ponieważ nasze repozytorium jest prywatne, musimy upewnić się, że usługa GitHub Pages jest poprawnie włączona, aby strona mogła publicznie i bezpiecznie serwować plik JSON ze statystykami graczy bez błędów dostępu (CORS / 403).
 
+Zajmie to około 30 sekund. Wykonaj poniższe kroki:
 
+Wejdź w Ustawienia repozytorium:
 
-1. Wejdź w zakładkę Settings (Ustawienia) na górnym pasku repozytorium.
+Przejdź do strony głównej naszego repozytorium na GitHubie.
 
-2. W menu po lewej stronie znajdź sekcję Code and automation i kliknij Pages.
+Na górnym pasku menu kliknij zakładkę Settings (Ustawienia) (wymagane uprawnienia administratora).
 
-3. W sekcji Build and deployment jako Source wybierz opcję "Deploy from a branch".
+Przejdź do sekcji Pages:
 
-4. Pod spodem w sekcji Branch wybierz odpowiednią gałąź (np. main) oraz folder /root.
+W lewym panelu bocznym (w sekcji Code and automation) kliknij opcję Pages.
 
-5. Kliknij przycisk Save.
+Skonfiguruj źródło wdrożenia (Build and deployment):
 
+W sekcji Source upewnij się, że wybrana jest opcja: Deploy from a branch.
 
+Poniżej, w sekcji Branch:
 
-Dzięki temu nasza strona będzie działać w internecie 24/7 dla każdego bez potrzeby odpalania czegokolwiek na komputerach!
+Wybierz gałąź (branch), na której pracuje zespół (np. main lub Wasz główny branch roboczy).
+
+Wybierz folder: / (root) (lub /docs, jeśli tam trzymasz pliki strony).
+
+Kliknij przycisk Save (Zapisz).
+
+Sprawdź wygenerowany adres:
+
+Po odświeżeniu strony na samej górze sekcji Pages pojawi się zielony komunikat z publicznym adresem strony (np. https://nazwa-uzytkownika.github.io/nazwa-repo/).
+
+Wejdź w ten link w trybie incognito – strona powinna załadować się poprawnie, a statystyki Steam powinny automatycznie pobrać się z pliku JSON.
