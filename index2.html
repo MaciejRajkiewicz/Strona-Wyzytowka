@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Najlepsze piłkarze – World Cup 2026</title>
+    <link rel="stylesheet" href="css_header.css">
+    <link rel="stylesheet" href="Footer.css">
     <style>
         * {
             margin: 0;
@@ -20,45 +22,10 @@
             -webkit-text-size-adjust: 100%;
         }
 
-        /* ===== HEADER ===== */
-        header {
-            background: linear-gradient(90deg, #0d3b1e, #1a5c2e, #0d3b1e);
-            padding: 1.5rem 1.2rem;
-            text-align: center;
-            border-bottom: 4px solid #d4af37;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            position: relative;
-            overflow: hidden;
-        }
+      
 
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="2" fill="%23d4af37" opacity="0.15"/></svg>');
-            opacity: 0.5;
-        }
-
-        header h1 {
-            font-size: clamp(1.35rem, 5vw, 2.6rem);
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #fff, #d4af37, #fff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            line-height: 1.25;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: clamp(0.85rem, 2.5vw, 1rem);
-            color: #a8d5a2;
-            position: relative;
-            padding: 0 0.5rem;
-        }
+       
+        
 
         /* ===== MAIN ===== */
         main {
@@ -229,25 +196,11 @@
             flex-direction: row-reverse;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: #06140a;
-            border-top: 3px solid #d4af37;
-            text-align: center;
-            padding: 1.5rem 1rem;
-            color: #8fbc8f;
-            font-size: 0.9rem;
-        }
-
-        footer strong {
-            color: #d4af37;
-        }
+       
 
         /* ========== MOBILE (telefony) ========== */
         @media (max-width: 700px) {
-            header {
-                padding: 1.3rem 0.9rem;
-            }
+           
 
             main {
                 padding: 1.4rem 0.85rem 3rem;
@@ -320,11 +273,18 @@
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Najlepsze piłkarze w World Cup 2026</h1>
-    <p>Gwiazdy, które zapisały się w historii turnieju w USA, Kanadzie i Meksyku</p>
-</header>
+    <header>
+        <a href="index.html"><img src="img_header/logo.png" alt="Logo_header" class="logo_header"></a>
+        <div class="dropdown">
+            <button class="menu_header">☰</button>
+            <div class="menu_header_content">
+                
+                <a href="Footer_interactive.html">Gracze Steam</a>
+                <a href="Kolko_i_krzyrzyk/index_kk.html">Kółko i Krzyrzyk</a>
+                <a href="index2.html">Piłka nożna</a>
+            </div>
+        </div>
+    </header>
 
 <main>
     <div class="selector">
@@ -391,12 +351,51 @@
     </section>
 </main>
 
-<footer>
-    <p>
-        Strona stworzona z pasją do piłki nożnej · World Cup 2026 · 
-        <strong>Najlepsi z najlepszych</strong>
-    </p>
-</footer>
+
+    <footer>
+        <div class="footer_left">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mlLdjGKICpKkmrjEWxocQK8MmhrF-Cj7SNig2U4_sQ&s=10" alt="logo" id="img_smaller">
+        </div>
+        <div id="footer_right">
+            <div id="column_1">
+                <label for="column_1">
+                    <span class="footer_title">Gry</span>
+                    <ul>
+                        <li><a href="https://www.roblox.com/games/91445552037955/HUSH">HUSH</a></li>
+                        <li><a href="https://www.roblox.com/games/21532277/Notoriety-A-PAYDAY-Experience">PAYDAY</a></li>
+                        <li><a href="https://www.roblox.com/games/9192423027/Industrialist">Industrialist</a></li>
+                        <li><a href="https://www.roblox.com/games/185655149/Welcome-to-Bloxburg">Bloxburg</a></li>
+                    </ul>
+                </label>
+            </div>
+            <div id="column_2">
+                <label for="column_2">
+                    <span class="footer_title">Poradniki</span>
+                <ul>
+                    <li><a href="https://hush.fandom.com/wiki/H.U.S.H_Wiki">HUSH Wiki</a></li>
+                    <li><a href="https://payday.fandom.com/wiki/PAYDAY_2">PAYDAY Wiki</a></li>
+                    <li><a href="https://industrialist.fandom.com/wiki/Industrialist_Wiki">Industrialist Wiki</a></li>
+                    <li><a href="https://tiny.pl/kvvr_0mm7">Bloxburg Wiki</a></li>
+                </ul>
+                </label>
+
+            </div>
+            <div id="column_3">
+                <label for="column_3">
+                    <span class="footer_title">Inne Platformy</span>
+                <ul>
+                    <li><a href="https://store.steampowered.com/">Steam</a></li>
+                    <li><a href="https://store.epicgames.com/?lang=pl">Epic</a></li>
+                    <li><a href="https://www.gog.com/pl/">GOG</a></li>
+                    <li><a href="https://www.rockstargames.com/">Rockstar</a></li>
+                </ul>
+                </label>
+
+            </div>
+
+        </div>
+    </footer>
+
 
 <script>
     const players = {
