@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Najlepsze piłkarze – World Cup 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a1f0a 0%, #0d2b1a 40%, #0a1628 100%);
+            color: #f0f4f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(90deg, #0d3b1e, #1a5c2e, #0d3b1e);
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="2" fill="%23d4af37" opacity="0.15"/></svg>');
+            opacity: 0.5;
+        }
+
+        header h1 {
+            font-size: clamp(1.35rem, 5vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, #d4af37, #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            line-height: 1.25;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            color: #a8d5a2;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.8rem 1rem 3.5rem;
+        }
+
+        /* ===== SELECTOR ===== */
+        .selector {
+            background: rgba(13, 40, 25, 0.7);
+            border: 1px solid #2a6b3a;
+            border-radius: 16px;
+            padding: 1.4rem 1rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .selector h2 {
+            text-align: center;
+            margin-bottom: 1.1rem;
+            color: #d4af37;
+            font-size: clamp(1.15rem, 4vw, 1.4rem);
+        }
+
+        .player-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .player-btn {
+            background: linear-gradient(145deg, #1a5c2e, #0d3b1e);
+            border: 2px solid #2a6b3a;
+            color: #e8f5e9;
+            padding: 0.65rem 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+            transition: all 0.25s ease;
+            min-height: 44px; /* lepsze kliknięcie na telefonie */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .player-btn:hover,
+        .player-btn.active {
+            background: linear-gradient(145deg, #d4af37, #b8860b);
+            color: #0a1f0a;
+            border-color: #d4af37;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .player-display {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(0,0,0,0.25);
+            border-radius: 12px;
+            padding: 1.2rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .player-display.show {
+            display: flex;
+        }
+
+        .player-display img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 12px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+        }
+
+        .player-info h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: #d4af37;
+            margin-bottom: 0.35rem;
+        }
+
+        .player-info .goals {
+            display: inline-block;
+            background: #c62828;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .player-info p {
+            color: #c8e6c9;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            line-height: 1.55;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+            background: rgba(13, 40, 25, 0.55);
+            border-radius: 18px;
+            padding: 1.6rem;
+            border: 1px solid #2a6b3a;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 14px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+        }
+
+        .section-content h2 {
+            font-size: clamp(1.35rem, 4.5vw, 1.7rem);
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-content .goals-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #c62828, #e53935);
+            color: white;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin-bottom: 0.9rem;
+            box-shadow: 0 3px 10px rgba(198, 40, 40, 0.4);
+        }
+
+        .section-content p {
+            color: #d0e8d0;
+            font-size: clamp(0.98rem, 3.2vw, 1.08rem);
+            line-height: 1.65;
+        }
+
+        .section-1, .section-3 {
+            flex-direction: row;
+        }
+
+        .section-2 {
+            flex-direction: row-reverse;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #06140a;
+            border-top: 3px solid #d4af37;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            color: #8fbc8f;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* ========== MOBILE (telefony) ========== */
+        @media (max-width: 700px) {
+            header {
+                padding: 1.3rem 0.9rem;
+            }
+
+            main {
+                padding: 1.4rem 0.85rem 3rem;
+            }
+
+            .selector {
+                padding: 1.2rem 0.85rem;
+                margin-bottom: 2rem;
+            }
+
+            .player-buttons {
+                gap: 0.5rem;
+            }
+
+            .player-btn {
+                padding: 0.6rem 0.95rem;
+                font-size: 0.88rem;
+                flex: 1 1 auto;
+                min-width: calc(50% - 0.5rem);
+                text-align: center;
+            }
+
+            .player-display {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 1.1rem;
+                padding: 1.1rem;
+            }
+
+            .player-display img {
+                width: 160px;
+                height: 160px;
+                margin: 0 auto;
+            }
+
+            .section,
+            .section-1,
+            .section-2,
+            .section-3 {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 1.3rem;
+                padding: 1.3rem 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .section img {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .section-content h2 {
+                margin-top: 0.2rem;
+            }
+        }
+
+        /* Bardzo małe telefony */
+        @media (max-width: 380px) {
+            .player-btn {
+                min-width: 100%;
+            }
+
+            .section img,
+            .player-display img {
+                width: 170px;
+                height: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Najlepsze piłkarze w World Cup 2026</h1>
+    <p>Gwiazdy, które zapisały się w historii turnieju w USA, Kanadzie i Meksyku</p>
+</header>
+
+<main>
+    <div class="selector">
+        <h2>Wybierz piłkarza</h2>
+        <div class="player-buttons">
+            <button class="player-btn" data-player="mbappe">Kylian Mbappé</button>
+            <button class="player-btn" data-player="messi">Lionel Messi</button>
+            <button class="player-btn" data-player="haaland">Erling Haaland</button>
+            <button class="player-btn" data-player="bellingham">Jude Bellingham</button>
+            <button class="player-btn" data-player="kane">Harry Kane</button>
+        </div>
+
+        <div id="player-display" class="player-display">
+            <img id="player-img" src="" alt="Piłkarz">
+            <div class="player-info">
+                <h3 id="player-name"></h3>
+                <div class="goals" id="player-goals"></div>
+                <p id="player-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEKCJA 1: zdjęcie lewo, opis prawo -->
+    <section class="section section-1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Kylian_Mbappe_France_v_Morocco_9_July_2026-148.jpg" alt="Kylian Mbappé">
+        <div class="section-content">
+            <h2>Kylian Mbappé</h2>
+            <div class="goals-badge">10 goli</div>
+            <p>
+                Król strzelców World Cup 2026. Francuz znów pokazał, dlaczego jest uważany za jednego z najlepszych napastników świata. 
+                Jego szybkość, wykończenie i decydujące gole w kluczowych meczach sprawiły, że zdobył Złotego Buta i przeszedł do historii jako 
+                najlepszy strzelec turnieju.
+            </p>
+        </div>
+    </section>
+
+    <!-- SEKCJA 2: opis lewo + gole, zdjęcie prawo -->
+    <section class="section section-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Lionel_Messi_Argentina_v_Egypt_7_July_2026-054.jpg" alt="Lionel Messi">
+        <div class="section-content">
+            <h2>Lionel Messi</h2>
+            <div class="goals-badge">8 goli</div>
+            <p>
+                Nawet w swoim ostatnim (lub przedostatnim) mundialu Argentyńczyk udowodnił, że magia nie ma wieku. 
+                8 goli, kilka asyst i niezapomniane momenty sprawiły, że Messi po raz kolejny zachwycił cały świat. 
+                Jego występ w 2026 roku to prawdziwa lekcja piłkarskiej inteligencji i klasy.
+            </p>
+        </div>
+    </section>
+
+    <!-- SEKCJA 3: jak sekcja 1 -->
+    <section class="section section-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Erling_Haaland_June_2025.jpg" alt="Erling Haaland">
+        <div class="section-content">
+            <h2>Erling Haaland</h2>
+            <div class="goals-badge">7 goli</div>
+            <p>
+                Norweski niszczyciel bramek w swoim debiucie na mundialu pokazał pełnię możliwości. 
+                7 goli, potężna obecność w polu karnym i nieustanne zagrożenie sprawiły, że Norwegia 
+                poszła dalej, niż wielu się spodziewało. Haaland potwierdził, że jest jednym z najbardziej 
+                kompletnych napastników swojej generacji.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        Strona stworzona z pasją do piłki nożnej · World Cup 2026 · 
+        <strong>Najlepsi z najlepszych</strong>
+    </p>
+</footer>
+
+<script>
+    const players = {
+        mbappe: {
+            name: "Kylian Mbappé",
+            goals: "10 goli – Złoty But",
+            desc: "Najlepszy strzelec turnieju. Szybkość, technika i zimna krew w kluczowych momentach. Prawdziwy lider Francji.",
+            img: "https://upload.wikimedia.org/wikipedia/commons/8/89/Kylian_Mbappe_France_v_Morocco_9_July_2026-148.jpg"
+        },
+        messi: {
+            name: "Lionel Messi",
+            goals: "8 goli",
+            desc: "Magik z Argentyny. Nawet w późnej fazie kariery potrafił zachwycić i zapisać kolejne rozdziały historii mundialu.",
+            img: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Lionel_Messi_Argentina_v_Egypt_7_July_2026-054.jpg"
+        },
+        haaland: {
+            name: "Erling Haaland",
+            goals: "7 goli",
+            desc: "Norweska potęga. Dominacja w polu karnym i nieustanne zagrożenie dla każdej obrony. Debiut, który zapamiętamy na długo.",
+            img: "https://upload.wikimedia.org/wikipedia/commons/7/71/Erling_Haaland_June_2025.jpg"
+        },
+        bellingham: {
+            name: "Jude Bellingham",
+            goals: "7 goli",
+            desc: "Angielski silnik środka pola. Gole, asysty, walka i charakter. Jeden z najbardziej kompletnych piłkarzy turnieju.",
+            img: "https://upload.wikimedia.org/wikipedia/commons/2/23/Jude_Bellingham_England_v_Ghana_23_June_2026-061_%28cropped%29.jpg"
+        },
+        kane: {
+            name: "Harry Kane",
+            goals: "6 goli",
+            desc: "Kapitan Anglii i zawsze groźny napastnik. Doświadczenie i skuteczność, które pomogły reprezentacji daleko zajść.",
+            img: "https://upload.wikimedia.org/wikipedia/commons/4/43/Harry_Kane_England_v_Ghana_23_June_2026-024.jpg"
+        }
+    };
+
+    const buttons = document.querySelectorAll('.player-btn');
+    const display = document.getElementById('player-display');
+    const img = document.getElementById('player-img');
+    const nameEl = document.getElementById('player-name');
+    const goalsEl = document.getElementById('player-goals');
+    const descEl = document.getElementById('player-desc');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const key = btn.dataset.player;
+            const p = players[key];
+
+            img.src = p.img;
+            img.alt = p.name;
+            nameEl.textContent = p.name;
+            goalsEl.textContent = p.goals;
+            descEl.textContent = p.desc;
+
+            display.classList.add('show');
+        });
+    });
+</script>
+
+</body>
+</html>
