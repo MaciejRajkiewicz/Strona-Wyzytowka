@@ -98,3 +98,21 @@ main button{
     margin-top: 15px;
     padding: 6px 14px;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;   /* main zajmuje całą wolną przestrzeń */
+}
+
+footer {
+    flex-shrink: 0;   /* footer nie kurczy się */
+}
